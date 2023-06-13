@@ -12,7 +12,7 @@ def process_info(word, lines, is_full_info):
     return info
 
 
-def exists_word(word, instance):
+def formater(word, instance, is_full_info):
     results = []
     for i in range(len(instance)):
         info = process_info(
@@ -27,6 +27,10 @@ def exists_word(word, instance):
                 'ocorrencias': info
             })
     return results
+
+
+def exists_word(word, instance):
+    return formater(word, instance, False)
 
 
 def search_by_word(word, instance):
