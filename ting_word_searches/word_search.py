@@ -7,7 +7,8 @@ def process_info(word, lines, is_full_info):
                     'linha': i + 1,
                     'conteudo': lines[i],
                 })
-            info.append({'linha': i + 1})
+            else:
+                info.append({'linha': i + 1})
 
     return info
 
@@ -18,7 +19,7 @@ def formater(word, instance, is_full_info):
         info = process_info(
             word,
             instance.search(i)['linhas_do_arquivo'],
-            False
+            is_full_info
         )
         if info:
             results.append({
@@ -34,4 +35,4 @@ def exists_word(word, instance):
 
 
 def search_by_word(word, instance):
-    """Aqui irá sua implementação"""
+    return formater(word, instance, True)
